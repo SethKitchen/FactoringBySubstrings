@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Numerics;
 using System.Text;
 
@@ -18,9 +19,11 @@ namespace FactoringBySubstrings
             for (int i = 0; i < s.Length; i++)
                 for (int j = i; j < s.Length; j++)
                 {
-                    stringList.Add(BigInteger.Parse("-"+s.Substring(i, j - i + 1)));
-                    stringList.Add(BigInteger.Parse(s.Substring(i, j - i + 1)));
+                    var str = s.Substring(i, j - i + 1);
+                    stringList.Add(BigInteger.Parse("-"+str));
+                    stringList.Add(BigInteger.Parse(str));
                 }
+            //stringList.Distinct();
             return stringList;
         }
     }
